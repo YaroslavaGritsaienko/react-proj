@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Layout, Row, Col} from 'antd';
+
+import {ToDo} from './components/ToDo';
+
+import 'antd/dist/antd.css'
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const {Header, Footer, Content} = Layout;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+const App = () => {
+    return (
+        <Layout>
+            <Header></Header>
+            <Content>
+                <Row>
+                    <Col span={12} offset={6} className="todo">
+                        <ToDo/>
+                    </Col>
+                </Row>
+            </Content>
+            <Footer></Footer>
+        </Layout>
+    )
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'));
